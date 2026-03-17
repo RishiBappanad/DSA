@@ -3,10 +3,8 @@ class Solution:
         res = ""
         stack = []
         for i in s:
-            if len(stack) > 0 and i == stack[-1]:
-                stack.pop()
+            if len(res) > 0 and i == res[-1]:
+                res = res[:-1]
             else:
-                stack.append(i)
-        for i in stack:
-            res += i
+                res += i
         return res
