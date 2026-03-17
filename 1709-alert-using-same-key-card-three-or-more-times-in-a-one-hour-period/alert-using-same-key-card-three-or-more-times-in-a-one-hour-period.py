@@ -21,5 +21,4 @@ class Solution:
                 if recent - first <= hour:
                     res.append(i)
                     break
-        print(hashmap)
         return sorted(res)
