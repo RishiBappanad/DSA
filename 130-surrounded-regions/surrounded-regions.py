@@ -31,7 +31,8 @@ class Solution:
                 res.append((i, j + 1))
             return res
         safe = set()
-        def dfs(coords, visited):
+        visited = set()
+        def dfs(coords):
             neighbors = neighbor(coords)
             safe.add(coords)
             for i in neighbors:
@@ -40,9 +41,10 @@ class Solution:
                 visited.add(i)
                 x, y = i[0], i[1]
                 if board[x][y] == "O":
-                    dfs(i, visited)
+                    dfs(i)
+        
         for i in outer_os:
-            dfs(i, set())
+            dfs(i)
         for i in range(len(board)):
             for j in range(len(board[0])):
                 if (i, j) not in safe:
